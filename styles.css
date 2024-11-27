@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Britannic Bold';
+  src: local('Britannic Bold'); /* Utilise la police locale si elle est installée */
+}
+
+body {
+  font-family: 'Britannic Bold', Arial, sans-serif;
+  text-align: center;
+  margin: 50px;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#card-container {
+  margin: 20px;
+}
+
+#card {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  display: inline-block;
+  cursor: grab;
+  border-radius: 15px; /* Coins arrondis */
+  transition: transform 0.2s;
+}
+
+#card:hover {
+  transform: scale(1.05);
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.category {
+  width: 200px;
+  height: 100px;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #999;
+  border-radius: 15px; /* Coins arrondis */
+  transition: background-color 0.2s;
+}
+
+.category:hover {
+  background-color: #d0d0d0;
+}
+
+#score-container {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.vibrate {
+  animation: vibrate 0.3s;
+}
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
