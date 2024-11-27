@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classer les Cartes</title>
+  <title>Habitude ou Routine</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
+  <!-- Barre d'outils avec logo -->
   <header>
     <nav>
       <img src="logo.png" alt="Logo" class="logo">
@@ -18,21 +20,24 @@
     </nav>
   </header>
 
-  <h1>Classer les Cartes : Habitude, Routine, ou Autre ?</h1>
+  <!-- Titre du jeu -->
+  <h1>Habitude ou Routine ?</h1>
 
+  <!-- Carte à classer -->
   <div id="card-container">
-    <div id="card"></div>
+    <div id="card" draggable="true">Manger 5 fruits ou légumes chaque jour</div>
   </div>
 
+  <!-- Zones pour déposer la carte -->
   <div class="categories">
     <div id="habit" class="category">Habitude</div>
     <div id="routine" class="category">Routine</div>
-    <div id="leisure" class="category">Loisir</div>
-    <div id="work" class="category">Travail</div>
   </div>
 
+  <!-- Score -->
   <div id="score-container">
     <p>Score : <span id="score">0</span>/10</p>
+    <p id="feedback"></p>
   </div>
 
   <script src="script.js"></script>
