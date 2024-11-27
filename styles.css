@@ -3,19 +3,19 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1E3A8A; /* Bleu foncé */
+  background-color: #E0F7FA; /* Bleu ciel clair */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  color: #E0F2FE; /* Blanc bleuté pour le texte */
+  color: #1E3A8A; /* Bleu foncé pour le texte */
 }
 
 /* Header and toolbar styles */
 header {
   width: 100%;
-  background-color: #1E3A8A; /* Même bleu foncé que le fond */
+  background-color: #1565C0; /* Bleu plus foncé pour la barre d'outils */
   padding: 10px 0;
 }
 
@@ -42,7 +42,7 @@ nav {
 }
 
 .toolbar a {
-  color: #E0F2FE; /* Blanc bleuté pour le texte */
+  color: white;
   text-decoration: none;
   font-size: 18px;
 }
@@ -56,7 +56,7 @@ h1 {
   font-family: 'Britannic Bold', sans-serif;
   font-size: 36px;
   margin-top: 20px;
-  color: #E0F2FE; /* Blanc bleuté */
+  color: #1E3A8A; /* Bleu foncé */
 }
 
 /* Card container */
@@ -65,7 +65,7 @@ h1 {
 }
 
 #card {
-  background-color: #60A5FA; /* Bleu clair */
+  background-color: #4FA4D8; /* Bleu moyen */
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -75,7 +75,7 @@ h1 {
   width: 300px;
   margin: 0 auto;
   user-select: none;
-  color: #1E3A8A; /* Bleu foncé pour contraster avec le fond clair */
+  color: white; /* Blanc pour le texte */
 }
 
 /* Categories */
@@ -86,14 +86,14 @@ h1 {
 }
 
 .category {
-  background-color: #60A5FA; /* Bleu clair */
+  background-color: #4FA4D8; /* Bleu moyen */
   padding: 30px;
   width: 150px;
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: #1E3A8A; /* Bleu foncé pour le texte */
+  color: white; /* Blanc pour le texte */
 }
 
 .category:hover {
@@ -101,18 +101,18 @@ h1 {
 }
 
 #habit {
-  background-color: #60A5FA; /* Bleu clair */
+  background-color: #4FA4D8; /* Bleu moyen */
 }
 
 #routine {
-  background-color: #60A5FA; /* Bleu clair */
+  background-color: #4FA4D8; /* Bleu moyen */
 }
 
 /* Score container */
 #score-container {
   margin-top: 20px;
   font-size: 20px;
-  color: #E0F2FE; /* Blanc bleuté pour le texte */
+  color: #1E3A8A; /* Bleu foncé pour le texte */
 }
 
 p {
