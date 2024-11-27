@@ -2,6 +2,10 @@ let score = 0;
 let mistakes = 0;
 let totalCards = 10; // Nombre total de cartes à classer
 let currentCardIndex = 0;
+let isDragging = false;
+let offsetX, offsetY;
+let selectedCard;
+let categories = document.querySelectorAll('.category');
 
 // Base de données des cartes avec leur catégorie correcte
 const cards = [
@@ -44,55 +48,72 @@ function updateCard() {
 function endGame() {
   if (score === 10) {
     alert("Félicitations, score parfait ! Vous avez " + score + "/10 !");
-    triggerConfetti(); // Lance les confettis
+    triggerConfetti(); // Lance les confettis si tu veux en garder l'option
   } else {
     alert("Le jeu est terminé ! Votre score : " + score + " sur 10, avec " + mistakes + " erreurs.");
   }
 }
 
-// Fonction pour gérer le dépôt de la carte dans une catégorie
-function drop(event, expectedCategory) {
-  event.preventDefault();
+// Détecte si la carte est dans une des catégories
+function checkCardInCategory(card, category) {
+  const cardRect = card.getBoundingClientRect();
+  const categoryRect = category.getBoundingClientRect();
   
-  const card = document.getElementById("card");
-  const cardCategory = card.dataset.category; // Récupère la catégorie correcte de la carte
+  return !(cardRect.right < categoryRect.left ||
+           cardRect.left > categoryRect.right ||
+           cardRect.bottom < categoryRect.top ||
+           cardRect.top > categoryRect.bottom);
+}
 
-  if (cardCategory === expectedCategory) {
-    score++;
-    alert("Correct !");
-  } else {
-    mistakes++;
-    alert("Incorrect !");
+// Déplace la carte en suivant la souris
+document.addEventListener("mousemove", function(event) {
+  if (isDragging && selectedCard) {
+    selectedCard.style.left = event.clientX - offsetX + "px";
+    selectedCard.style.top = event.clientY - offsetY + "px";
   }
+});
 
-  currentCardIndex++;
-  updateScore();  // Mettre à jour le score affiché
-  updateCard();   // Mettre à jour la carte après le dépôt
-}
+document.addEventListener("mousedown", function(event) {
+  const card = document.getElementById("card");
+  
+  if (event.target === card) {
+    isDragging = true;
+    selectedCard = card;
+    offsetX = event.offsetX;
+    offsetY = event.offsetY;
+  }
+});
 
-// Fonction pour permettre le drag-and-drop
-function allowDrop(event) {
-  event.preventDefault();
-}
-
-// Fonction pour gérer le drag (commence le drag)
-function drag(event) {
-  event.dataTransfer.setData("text", event.target.id);
-}
-
-// Fonction pour mettre à jour le score affiché
-function updateScore() {
-  document.getElementById("score").innerText = score;
-}
-
-// Lance les confettis si le score est de 10/10
-function triggerConfetti() {
-  confetti({
-    particleCount: 100,
-    spread: 70,
-    origin: { y: 0.6 }
-  });
-}
+document.addEventListener("mouseup", function(event) {
+  if (isDragging) {
+    let droppedInCorrectCategory = false;
+    categories.forEach(category => {
+      if (checkCardInCategory(selectedCard, category)) {
+        if (selectedCard.dataset.category === category.id) {
+          score++;
+          category.classList.add("active"); // Animation si la carte est correcte
+          setTimeout(() => {
+            category.classList.remove("active");
+          }, 300);
+          droppedInCorrectCategory = true;
+        }
+      }
+    });
+    
+    if (!droppedInCorrectCategory) {
+      mistakes++;
+      selectedCard.classList.add("vibrate"); // Vibration en cas d'erreur
+      setTimeout(() => {
+        selectedCard.classList.remove("vibrate");
+      }, 300);
+    }
+    
+    isDragging = false;
+    selectedCard.style.left = "50%";  // Réinitialise la carte au centre
+    selectedCard.style.top = "50%";
+    updateCard();
+  }
+});
 
 // Initialiser le jeu
 updateCard();
