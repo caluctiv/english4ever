@@ -1,18 +1,11 @@
-@font-face {
-  font-family: 'Britannic Bold';
-  src: local('Britannic Bold'); /* Utilise la police locale si elle est installée */
-}
-
 body {
-  font-family: 'Britannic Bold', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
   margin: 50px;
-  font-size: 16px;
 }
 
 h1 {
   font-size: 2rem;
-  font-weight: bold;
 }
 
 #card-container {
