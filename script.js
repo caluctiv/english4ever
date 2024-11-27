@@ -32,11 +32,54 @@ function getRandomCard() {
 function updateCard() {
   if (currentCardIndex < totalCards) {
     const cardData = getRandomCard();
+    const card = document.getElementById("card"); // Assure-toi que l'élément avec l'ID "card" existe dans ton HTML
     card.innerHTML = cardData.text;
-    card.dataset.category = cardData.category; // Stocke la catégorie correcte
+    card.dataset.category = cardData.category; // Stocke la catégorie correcte dans un attribut personnalisé
   } else {
     endGame(); // Fin du jeu après 10 cartes
   }
 }
 
-function
+// Fonction appelée à la fin du jeu
+function endGame() {
+  alert("Le jeu est terminé ! Votre score : " + score + " sur 10, avec " + mistakes + " erreurs.");
+}
+
+// Fonction pour gérer le dépôt de la carte dans une catégorie
+function drop(event, expectedCategory) {
+  event.preventDefault();
+  
+  const card = document.getElementById("card");
+  const cardCategory = card.dataset.category; // Récupère la catégorie correcte de la carte
+
+  if (cardCategory === expectedCategory) {
+    score++;
+    alert("Correct !");
+  } else {
+    mistakes++;
+    alert("Incorrect !");
+  }
+
+  currentCardIndex++;
+  updateCard(); // Met à jour la carte après le dépôt
+}
+
+// Permettre le drag-and-drop
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+// Initialisation du jeu
+document.addEventListener("DOMContentLoaded", function() {
+  updateCard(); // Charge la première carte au démarrage du jeu
+
+  // Zones de dépôt (habit et routine) - Assure-toi que ces éléments existent dans ton HTML
+  const habitZone = document.getElementById("habit");
+  const routineZone = document.getElementById("routine");
+
+  habitZone.ondragover = allowDrop;
+  routineZone.ondragover = allowDrop;
+
+  habitZone.ondrop = (event) => drop(event, "habit");
+  routineZone.ondrop = (event) => drop(event, "routine");
+});
