@@ -42,7 +42,12 @@ function updateCard() {
 
 // Fonction appelée à la fin du jeu
 function endGame() {
-  alert("Le jeu est terminé ! Votre score : " + score + " sur 10, avec " + mistakes + " erreurs.");
+  if (score === 10) {
+    alert("Félicitations, score parfait ! Vous avez " + score + "/10 !");
+    triggerConfetti(); // Lance les confettis
+  } else {
+    alert("Le jeu est terminé ! Votre score : " + score + " sur 10, avec " + mistakes + " erreurs.");
+  }
 }
 
 // Fonction pour gérer le dépôt de la carte dans une catégorie
@@ -80,20 +85,14 @@ function updateScore() {
   document.getElementById("score").innerText = score;
 }
 
-// Initialisation du jeu
-document.addEventListener("DOMContentLoaded", function() {
-  updateCard(); // Charge la première carte au démarrage du jeu
+// Lance les confettis si le score est de 10/10
+function triggerConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
 
-  // Zones de dépôt (habit et routine)
-  const habitZone = document.getElementById("habit");
-  const routineZone = document.getElementById("routine");
-  const card = document.getElementById("card");
-
-  habitZone.ondragover = allowDrop;
-  routineZone.ondragover = allowDrop;
-
-  habitZone.ondrop = (event) => drop(event, "habit");
-  routineZone.ondrop = (event) => drop(event, "routine");
-
-  card.ondragstart = drag;  // Activer le drag sur la carte
-});
+// Initialiser le jeu
+updateCard();
