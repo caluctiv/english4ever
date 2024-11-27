@@ -1,6 +1,6 @@
 /* Global styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #E0F7FA; /* Bleu ciel clair */
@@ -10,13 +10,12 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   color: #1E3A8A; /* Bleu foncé pour le texte */
-  overflow: hidden;
 }
 
 /* Header and toolbar styles */
 header {
   width: 100%;
-  background-color: #1565C0; /* Bleu plus foncé pour la barre d'outils */
+  background-color: #1565C0;
   padding: 10px 0;
 }
 
@@ -38,60 +37,43 @@ nav {
   gap: 20px;
 }
 
-.toolbar li {
-  display: inline;
-}
-
 .toolbar a {
   color: white;
   text-decoration: none;
   font-size: 18px;
 }
 
-.toolbar a:hover {
-  text-decoration: underline;
-}
-
 /* Title */
 h1 {
-  font-family: 'Britannic Bold', sans-serif;
-  font-size: 36px;
   margin-top: 20px;
-  color: #1E3A8A; /* Bleu foncé */
+  color: #1E3A8A;
 }
 
 /* Card container */
 #card-container {
-  margin: 20px;
   position: relative;
+  margin: 20px;
 }
 
 #card {
-  background-color: #4FA4D8; /* Bleu moyen */
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: #4FA4D8;
+  color: white;
   font-size: 20px;
   text-align: center;
   width: 300px;
   height: 150px;
-  user-select: none;
-  color: white;
+  line-height: 150px;
+  border-radius: 15px;
   position: absolute;
-  cursor: pointer;
-  transition: transform 0.2s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  transition: all 0.2s;
 }
 
-#card.vibrate {
-  animation: vibrate 0.3s linear;
-}
-
-@keyframes vibrate {
-  0% { transform: translate(2px, 0); }
-  25% { transform: translate(-2px, 0); }
-  50% { transform: translate(2px, 0); }
-  75% { transform: translate(-2px, 0); }
-  100% { transform: translate(0, 0); }
+#card.dragging {
+  cursor: grabbing;
 }
 
 /* Categories */
@@ -102,32 +84,27 @@ h1 {
 }
 
 .category {
-  background-color: #4FA4D8; /* Bleu moyen */
+  background-color: #4FA4D8;
   padding: 50px;
   width: 200px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: white;
-  transition: all 0.3s ease;
-}
-
-.category:hover {
-  background-color: #3B82F6; /* Bleu intermédiaire lors du survol */
+  transition: background-color 0.3s;
 }
 
 .category.active {
-  background-color: #2C7DF8; /* Animation lors de la validation */
-  transform: scale(1.1);
+  background-color: #2C7DF8;
+}
+
+.category.hovered {
+  background-color: #3B82F6;
+  border: 3px dashed white;
 }
 
 /* Score container */
 #score-container {
   margin-top: 20px;
   font-size: 20px;
-  color: #1E3A8A; /* Bleu foncé pour le texte */
-}
-
-p {
-  margin: 0;
+  color: #1E3A8A;
 }
