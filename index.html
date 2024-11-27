@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Habitude ou Routine</title>
+  <title>Classer les Cartes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Barre d'outils avec logo -->
   <header>
     <nav>
       <img src="logo.png" alt="Logo" class="logo">
@@ -19,26 +18,23 @@
     </nav>
   </header>
 
-  <!-- Titre du jeu -->
-  <h1>Habitude ou Routine ?</h1>
-  
-  <!-- Carte à classer -->
+  <h1>Classer les Cartes : Habitude, Routine, ou Autre ?</h1>
+
   <div id="card-container">
-    <div id="card">Carte</div>
+    <div id="card"></div>
   </div>
-  
-  <!-- Zones pour déposer la carte -->
+
   <div class="categories">
     <div id="habit" class="category">Habitude</div>
     <div id="routine" class="category">Routine</div>
+    <div id="leisure" class="category">Loisir</div>
+    <div id="work" class="category">Travail</div>
   </div>
 
-  <!-- Score -->
   <div id="score-container">
     <p>Score : <span id="score">0</span>/10</p>
   </div>
 
   <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script> <!-- Confetti -->
 </body>
 </html>
