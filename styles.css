@@ -10,6 +10,7 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   color: #1E3A8A; /* Bleu foncé pour le texte */
+  overflow: hidden;
 }
 
 /* Header and toolbar styles */
@@ -62,6 +63,7 @@ h1 {
 /* Card container */
 #card-container {
   margin: 20px;
+  position: relative;
 }
 
 #card {
@@ -71,11 +73,25 @@ h1 {
   padding: 20px;
   font-size: 20px;
   text-align: center;
-  cursor: grab;
   width: 300px;
-  margin: 0 auto;
+  height: 150px;
   user-select: none;
-  color: white; /* Blanc pour le texte */
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#card.vibrate {
+  animation: vibrate 0.3s linear;
+}
+
+@keyframes vibrate {
+  0% { transform: translate(2px, 0); }
+  25% { transform: translate(-2px, 0); }
+  50% { transform: translate(2px, 0); }
+  75% { transform: translate(-2px, 0); }
+  100% { transform: translate(0, 0); }
 }
 
 /* Categories */
@@ -87,25 +103,22 @@ h1 {
 
 .category {
   background-color: #4FA4D8; /* Bleu moyen */
-  padding: 30px;
-  width: 150px;
+  padding: 50px;
+  width: 200px;
   text-align: center;
   border-radius: 10px;
-  cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: white; /* Blanc pour le texte */
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .category:hover {
   background-color: #3B82F6; /* Bleu intermédiaire lors du survol */
 }
 
-#habit {
-  background-color: #4FA4D8; /* Bleu moyen */
-}
-
-#routine {
-  background-color: #4FA4D8; /* Bleu moyen */
+.category.active {
+  background-color: #2C7DF8; /* Animation lors de la validation */
+  transform: scale(1.1);
 }
 
 /* Score container */
