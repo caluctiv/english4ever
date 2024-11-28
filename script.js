@@ -48,11 +48,12 @@ const cards = [
 function updateCard() {
   if (currentCardIndex >= totalCards) return endGame();
 
+  // Sélectionne une carte aléatoire
   currentCardData = cards[Math.floor(Math.random() * cards.length)];
   cardElement.textContent = currentCardData.text;
   cardElement.dataset.category = currentCardData.category;
 
-  // Centrer la carte sur l'écran
+  // Réinitialisation de la carte et placement centré
   cardElement.style.top = "50%";
   cardElement.style.left = "50%";
   cardElement.style.transform = "translate(-50%, -50%)";
@@ -167,5 +168,7 @@ document.addEventListener("mouseup", () => {
 });
 
 // Appeler updateCard() dès le début pour afficher la première carte
-updateCard();
+window.onload = function() {
+  updateCard();  // Met à jour la première carte au chargement de la page
+};
 
