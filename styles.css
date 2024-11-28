@@ -1,34 +1,23 @@
-/* Global styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #E0F7FA;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  color: #1E3A8A;
-}
-
 /* Header styles */
 header {
   width: 100%;
   background-color: #979797; /* Couleur de la barre du haut */
   padding: 0;
+  height: 80px; /* Hauteur de la barre définie à 80px */
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: center; /* Centrage horizontal du logo */
-  height: 100px; /* Hauteur de la barre */
+  height: 100%; /* Hauteur égale à celle du header */
   position: relative;
 }
 
 .logo {
-  height: 100%; /* Le logo prend toute la hauteur */
+  height: 100%; /* Le logo prend toute la hauteur du nav */
   width: auto; /* Conserve les proportions du logo */
+  max-height: 100%; /* Limite la hauteur du logo à celle de la barre */
 }
 
 .toolbar {
@@ -45,68 +34,3 @@ nav {
   font-size: 18px;
 }
 
-h1 {
-  margin-top: 20px;
-  color: #1E3A8A;
-  text-align: center;
-}
-
-/* Card styles */
-#card-container {
-  position: relative;
-  margin: 20px;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center; /* Centrage du conteneur de cartes */
-}
-
-#card {
-  width: 300px;
-  height: 150px;
-  background-color: #4FA4D8;
-  color: white;
-  font-size: 18px;
-  text-align: center;
-  line-height: 150px;
-  border-radius: 15px;
-  cursor: grab;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#card.dragging {
-  cursor: grabbing;
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Category styles */
-.categories {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.category {
-  background-color: #4FA4D8;
-  padding: 50px;
-  width: 150px;
-  text-align: center;
-  border-radius: 10px;
-  color: white;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.category.active {
-  background-color: #2C7DF8;
-  transform: scale(1.1);
-}
-
-/* Score styles */
-#score-container {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #1E3A8A;
-}
