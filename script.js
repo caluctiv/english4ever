@@ -11,7 +11,7 @@ let isDragging = false;
 // Base de données des cartes (15 par catégorie)
 const cards = [
   // Habitudes
-  { text: "Lire un livre chaque soir", category: "true" },
+  { text: "Sing-Sang-Sung-Chanter", category: "true" },
   { text: "Se brosser les dents après le repas", category: "true" },
   { text: "Faire une promenade quotidienne", category: "true" },
   { text: "Boire un verre d'eau au réveil", category: "true" },
@@ -28,7 +28,7 @@ const cards = [
   { text: "Vérifier les emails après le petit-déjeuner", category: "true" },
 
   // Routine
-  { text: "Aller à la salle de sport le mercredi", category: "false" },
+  { text: "To be-was-been-être", category: "false" },
   { text: "Faire une lessive chaque samedi", category: "false" },
   { text: "Changer les draps tous les dimanches", category: "false" },
   { text: "Aller au supermarché le lundi soir", category: "false" },
