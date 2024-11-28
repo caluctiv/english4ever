@@ -150,39 +150,37 @@ function displayMessage(text) {
   message.style.left = "50%";
   message.style.transform = "translateX(-50%)";
   message.style.padding = "10px 20px";
-  message.style.backgroundColor = text === "Correct !" ? "#4CAF50" : "#F44336";
-  message.style.color = "white";
+  message.style.backgroundColor = "#000";
+  message.style.color = "#fff";
+  message.style.fontSize = "18px";
   message.style.borderRadius = "5px";
-  message.style.fontWeight = "bold";
   document.body.appendChild(message);
-
   setTimeout(() => {
     document.body.removeChild(message);
   }, 1000);
 }
 
-// Terminer le jeu
+// Fin du jeu
 function endGame() {
-  displayMessage(`Jeu terminé ! Score : ${score}/${totalCards}`);
+  alert(`Partie terminée ! Votre score est de ${score}/${totalCards}`);
 }
 
-// Gestion des événements
-cardElement.addEventListener("mousedown", () => {
+// Déplacement de la carte
+cardElement.addEventListener("mousedown", (event) => {
   isDragging = true;
-  cardElement.classList.add("dragging");
 });
 
-document.addEventListener("mousemove", (e) => {
-  if (isDragging) {
-    cardElement.style.left = `${e.pageX}px`;
-    cardElement.style.top = `${e.pageY}px`;
-  }
+document.addEventListener("mousemove", (event) => {
+  if (!isDragging) return;
+
+  const x = event.clientX - cardElement.offsetWidth / 2;
+  const y = event.clientY - cardElement.offsetHeight / 2;
+
+  cardElement.style.left = `${x}px`;
+  cardElement.style.top = `${y}px`;
 });
 
-document.addEventListener("mouseup", () => {
-  cardElement.classList.remove("dragging");
-  dropCard();
-});
+document.addEventListener("mouseup", dropCard);
 
-// Initialisation
+// Initialiser le jeu
 updateCard();
