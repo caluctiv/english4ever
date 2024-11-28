@@ -135,7 +135,7 @@ function endGame() {
   // Créer un élément de bouton "Réessayer"
   const retryButton = document.createElement("button");
   retryButton.classList.add("retry-button");
-  retryButton.innerHTML = `<i class="retry-icon">&#8635;</i> Réessayer`;
+  retryButton.innerHTML = `<i class="retry-icon">&#8635;</i> Retry`;
 
   // Ajouter un événement pour recharger la page lorsque le bouton est cliqué
   retryButton.onclick = function() {
