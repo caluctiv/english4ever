@@ -8,14 +8,14 @@ let currentCardIndex = 0;
 let currentCardData = null;
 let isDragging = false;
 
-// Base de données des cartes (15 par catégorie)
+// Base de données des cartes (10 par catégorie)
 const cards = [
   // True
   { text: "Sing-Sang-Sung-Chanter", category: "true" },
   { text: "Build-Built-Built-Construire", category: "true" },
   { text: "Run-Ran-Run-Courir", category: "true" },
   { text: "Mean-Meant-Meant-Signifier", category: "true" },
-  { text: "Méditer chaque matin", category: "true" },
+  { text: "Swim-Swam-Swum-Nager", category: "true" },
   { text: "Prendre des vitamines quotidiennement", category: "true" },
   { text: "Faire du yoga après le travail", category: "true" },
   { text: "Préparer le déjeuner la veille", category: "true" },
@@ -29,8 +29,8 @@ const cards = [
   { text: "Hear-Heard-Hearen-Entendre", category: "false" },
   { text: "Leave-Left-Leften-Partir/quitter/laisser", category: "false" },
   { text: "Steal-Stole-Stealen-Voler/dérober", category: "false" },
-  { text: "Préparer le petit-déjeuner chaque matin", category: "false" },
-  { text: "Prendre un café à 10h", category: "false" },
+  { text: "Write-Wrote-Wrotten-Écrire", category: "false" },
+  { text: "Throw-Threw-Throw-Jeter/lancer", category: "false" },
   { text: "Appeler un parent chaque dimanche", category: "false" },
 ];
 
