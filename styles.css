@@ -134,3 +134,19 @@ h1 {
   font-size: 20px;
   margin-right: 10px;
 }
+/* Style du footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1565C0;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0;
+}
