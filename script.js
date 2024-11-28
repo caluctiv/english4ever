@@ -31,7 +31,7 @@ const cards = [
   { text: "Steal-Stole-Stealen-Voler/dérober", category: "false" },
   { text: "Write-Wrote-Wrotten-Écrire", category: "false" },
   { text: "Throw-Threw-Throw-Jeter/lancer", category: "false" },
-  { text: "Appeler un parent chaque dimanche", category: "false" },
+  { text: "Wear-Wore-Wore-Porter-un vêtement", category: "false" },
 ];
 
 // Mise à jour de la carte
