@@ -10,38 +10,28 @@ let isDragging = false;
 
 // Base de données des cartes (15 par catégorie)
 const cards = [
-  // Habitudes
+  // True
   { text: "Sing-Sang-Sung-Chanter", category: "true" },
   { text: "Build-Built-Built-Construire", category: "true" },
-  { text: "Faire une promenade quotidienne", category: "true" },
-  { text: "Boire un verre d'eau au réveil", category: "true" },
+  { text: "Run-Ran-Run-Courir", category: "true" },
+  { text: "Mean-Meant-Meant-Signifier", category: "true" },
   { text: "Méditer chaque matin", category: "true" },
   { text: "Prendre des vitamines quotidiennement", category: "true" },
   { text: "Faire du yoga après le travail", category: "true" },
   { text: "Préparer le déjeuner la veille", category: "true" },
   { text: "Écrire un journal tous les soirs", category: "true" },
   { text: "Aller courir chaque matin", category: "true" },
-  { text: "Boire du thé vert après le déjeuner", category: "true" },
-  { text: "Planifier la journée le matin", category: "true" },
-  { text: "Faire des exercices de respiration", category: "true" },
-  { text: "Prendre une douche froide au réveil", category: "true" },
-  { text: "Vérifier les emails après le petit-déjeuner", category: "true" },
 
-  // Routine
+  // False
   { text: "To be-was-been-être", category: "false" },
   { text: "Fell-Felt-Felen-se sentir", category: "false" },
   { text: "Give-Gave-Guve-Donner", category: "false" },
-  { text: "Aller au supermarché le lundi soir", category: "false" },
-  { text: "Nettoyer la voiture chaque mois", category: "false" },
-  { text: "Déposer les enfants à l'école", category: "false" },
+  { text: "Hear-Heard-Hearen-Entendre", category: "false" },
+  { text: "Leave-Left-Leften-Partir/quitter/laisser", category: "false" },
+  { text: "Steal-Stole-Stealen-Voler/dérober", category: "false" },
   { text: "Préparer le petit-déjeuner chaque matin", category: "false" },
   { text: "Prendre un café à 10h", category: "false" },
   { text: "Appeler un parent chaque dimanche", category: "false" },
-  { text: "Sortir les poubelles le mardi soir", category: "false" },
-  { text: "Préparer le repas de famille le vendredi", category: "false" },
-  { text: "Aller au marché le samedi matin", category: "false" },
-  { text: "Ranger les courses après les avoir achetées", category: "false" },
-  { text: "Faire une promenade après dîner", category: "false" },
 ];
 
 // Mise à jour de la carte
