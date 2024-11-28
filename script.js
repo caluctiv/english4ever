@@ -16,11 +16,11 @@ const cards = [
   { text: "Run-Ran-Run-Courir", category: "true" },
   { text: "Mean-Meant-Meant-Signifier", category: "true" },
   { text: "Swim-Swam-Swum-Nager", category: "true" },
-  { text: "Prendre des vitamines quotidiennement", category: "true" },
-  { text: "Faire du yoga après le travail", category: "true" },
-  { text: "Préparer le déjeuner la veille", category: "true" },
-  { text: "Écrire un journal tous les soirs", category: "true" },
-  { text: "Aller courir chaque matin", category: "true" },
+  { text: "Buy-Bought-Bought-Acheter", category: "true" },
+  { text: "Eat-Ate-Eaten-Manger", category: "true" },
+  { text: "Keep-Kept-Kept-Garder", category: "true" },
+  { text: "Show-Showed-Shown-Montrer", category: "true" },
+  { text: "Speak-Spoke-Spoken-Parler", category: "true" },
 
   // False
   { text: "To be-was-been-être", category: "false" },
