@@ -43,39 +43,6 @@ const cards = [
   { text: "Ranger les courses après les avoir achetées", category: "routine" },
   { text: "Faire une promenade après dîner", category: "routine" },
 
-  // Loisirs
-  { text: "Regarder un film le samedi soir", category: "leisure" },
-  { text: "Jouer à un jeu vidéo après le dîner", category: "leisure" },
-  { text: "Lire un roman fantastique", category: "leisure" },
-  { text: "Écouter de la musique en soirée", category: "leisure" },
-  { text: "Aller au parc le dimanche après-midi", category: "leisure" },
-  { text: "Regarder un match de football", category: "leisure" },
-  { text: "Jouer à un jeu de société avec des amis", category: "leisure" },
-  { text: "Aller au cinéma le vendredi soir", category: "leisure" },
-  { text: "Visiter une galerie d'art", category: "leisure" },
-  { text: "Planifier une sortie entre amis", category: "leisure" },
-  { text: "Participer à un atelier créatif", category: "leisure" },
-  { text: "Pratiquer un instrument de musique", category: "leisure" },
-  { text: "Faire du jardinage", category: "leisure" },
-  { text: "Observer les étoiles la nuit", category: "leisure" },
-  { text: "Photographier la nature", category: "leisure" },
-
-  // Travail
-  { text: "Participer à une réunion d'équipe", category: "work" },
-  { text: "Rédiger un rapport hebdomadaire", category: "work" },
-  { text: "Planifier un projet", category: "work" },
-  { text: "Passer des appels professionnels", category: "work" },
-  { text: "Répondre aux emails le matin", category: "work" },
-  { text: "Préparer une présentation", category: "work" },
-  { text: "Faire une analyse de données", category: "work" },
-  { text: "Assister à une formation en ligne", category: "work" },
-  { text: "Mettre à jour un tableau de suivi", category: "work" },
-  { text: "Collaborer avec un collègue", category: "work" },
-  { text: "Examiner les objectifs mensuels", category: "work" },
-  { text: "Organiser les fichiers numériques", category: "work" },
-  { text: "Créer un calendrier de travail", category: "work" },
-  { text: "Passer un entretien d'embauche", category: "work" },
-  { text: "Superviser un stagiaire", category: "work" },
 ];
 
 // Mise à jour de la carte
