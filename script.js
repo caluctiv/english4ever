@@ -42,7 +42,6 @@ const cards = [
   { text: "Aller au marché le samedi matin", category: "false" },
   { text: "Ranger les courses après les avoir achetées", category: "false" },
   { text: "Faire une promenade après dîner", category: "false" },
-
 ];
 
 // Mise à jour de la carte
@@ -53,10 +52,13 @@ function updateCard() {
   cardElement.textContent = currentCardData.text;
   cardElement.dataset.category = currentCardData.category;
 
+  // Centrer la carte sur l'écran
   cardElement.style.top = "50%";
   cardElement.style.left = "50%";
   cardElement.style.transform = "translate(-50%, -50%)";
   cardElement.classList.remove("vibrate");
+
+  // La carte est prête à être déplacée
   isDragging = false;
 }
 
@@ -130,7 +132,7 @@ function displayMessage(text) {
 
 // Fonction pour afficher le bouton "Réessayer" à la fin de la partie
 function endGame() {
-  displayMessage(`Finished game ! Scoring : ${score}/${totalCards}`);
+  displayMessage(`Finished game! Scoring: ${score}/${totalCards}`);
 
   // Créer un élément de bouton "Réessayer"
   const retryButton = document.createElement("button");
@@ -164,4 +166,6 @@ document.addEventListener("mouseup", () => {
   dropCard();
 });
 
+// Appeler updateCard() dès le début pour afficher la première carte
+updateCard();
 
