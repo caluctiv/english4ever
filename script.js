@@ -130,7 +130,7 @@ function displayMessage(text) {
 
 // Fonction pour afficher le bouton "Réessayer" à la fin de la partie
 function endGame() {
-  displayMessage(`Jeu terminé ! Score : ${score}/${totalCards}`);
+  displayMessage(`Finished game ! Scoring : ${score}/${totalCards}`);
 
   // Créer un élément de bouton "Réessayer"
   const retryButton = document.createElement("button");
