@@ -89,18 +89,18 @@ function dropCard() {
         score++;
         scoreElement.textContent = score;
         category.classList.add("active");
-        displayMessage("Right !");
+        displayMessage("Correct !");
         setTimeout(() => category.classList.remove("active"), 300);
       } else {
         vibrateCard();
-        displayMessage("Wrong !");
+        displayMessage("Incorrect !");
       }
     }
   });
 
   if (!validDrop) {
     vibrateCard();
-    displayMessage("Wrong !");
+    displayMessage("Incorrect !");
   }
 
   isDragging = false;
