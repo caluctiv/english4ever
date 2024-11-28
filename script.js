@@ -166,3 +166,7 @@ document.addEventListener("mouseup", () => {
 
 // Initialisation
 updateCard();
+ // Si le score est 10/10, lancez l'effet confetti
+  if (score === 10) {
+    triggerConfetti();  // Déclenche l'effet confetti
+  }
