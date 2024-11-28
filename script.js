@@ -12,7 +12,7 @@ let isDragging = false;
 const cards = [
   // Habitudes
   { text: "Sing-Sang-Sung-Chanter", category: "true" },
-  { text: "Se brosser les dents après le repas", category: "true" },
+  { text: "Build-Built-Built-Construire", category: "true" },
   { text: "Faire une promenade quotidienne", category: "true" },
   { text: "Boire un verre d'eau au réveil", category: "true" },
   { text: "Méditer chaque matin", category: "true" },
@@ -29,8 +29,8 @@ const cards = [
 
   // Routine
   { text: "To be-was-been-être", category: "false" },
-  { text: "Faire une lessive chaque samedi", category: "false" },
-  { text: "Changer les draps tous les dimanches", category: "false" },
+  { text: "Fell-Felt-Felen-se sentir", category: "false" },
+  { text: "Give-Gave-Guve-Donner", category: "false" },
   { text: "Aller au supermarché le lundi soir", category: "false" },
   { text: "Nettoyer la voiture chaque mois", category: "false" },
   { text: "Déposer les enfants à l'école", category: "false" },
