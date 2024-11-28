@@ -128,9 +128,22 @@ function displayMessage(text) {
   }, 1000);
 }
 
-// Terminer le jeu
+// Fonction pour afficher le bouton "Réessayer" à la fin de la partie
 function endGame() {
   displayMessage(`Jeu terminé ! Score : ${score}/${totalCards}`);
+
+  // Créer un élément de bouton "Réessayer"
+  const retryButton = document.createElement("button");
+  retryButton.classList.add("retry-button");
+  retryButton.innerHTML = `<i class="retry-icon">&#8635;</i> Réessayer`;
+
+  // Ajouter un événement pour recharger la page lorsque le bouton est cliqué
+  retryButton.onclick = function() {
+    window.location.reload();
+  };
+
+  // Ajouter le bouton à la fin du body ou à un conteneur spécifique
+  document.body.appendChild(retryButton);
 }
 
 // Gestion des événements
