@@ -6,7 +6,6 @@ let score = 0;
 let totalCards = 10;
 let currentCardIndex = 0;
 let currentCardData = null;
-let isDragging = false;
 
 // Base de données des cartes (modifiée pour inclure seulement "Habitude" et "Travail")
 const cards = [
@@ -46,28 +45,17 @@ function updateCard() {
   cardElement.style.top = "50%";
   cardElement.style.left = "50%";
   cardElement.style.transform = "translate(-50%, -50%)";
-  cardElement.classList.remove("vibrate");
-  isDragging = false;
 }
 
-// Vibrations en cas d'erreur
-function vibrateCard() {
-  cardElement.classList.add("vibrate");
-  setTimeout(() => {
-    cardElement.classList.remove("vibrate");
-  }, 300);
-}
-
-// Déposer la carte
-function dropCard() {
-  if (!isDragging) return;
-
+// Vérifier si la carte est dans une catégorie valide
+function checkDrop(event) {
   let validDrop = false;
 
   categories.forEach((category) => {
     const cardRect = cardElement.getBoundingClientRect();
     const categoryRect = category.getBoundingClientRect();
 
+    // Vérification si la carte est dans la zone de la catégorie
     if (
       cardRect.right > categoryRect.left &&
       cardRect.left < categoryRect.right &&
@@ -82,18 +70,15 @@ function dropCard() {
         displayMessage("Correct !");
         setTimeout(() => category.classList.remove("active"), 300);
       } else {
-        vibrateCard();
         displayMessage("Incorrect !");
       }
     }
   });
 
   if (!validDrop) {
-    vibrateCard();
     displayMessage("Incorrect !");
   }
 
-  isDragging = false;
   currentCardIndex++;
   updateCard();
 }
@@ -121,3 +106,30 @@ function endGame() {
 
 // Fonction de démarrage
 updateCard();
+
+// Événements de souris et tactile
+cardElement.addEventListener("click", (event) => {
+  // Déplacer la carte à l'endroit du clic
+  const rect = cardElement.getBoundingClientRect();
+  const offsetX = event.clientX - rect.width / 2;
+  const offsetY = event.clientY - rect.height / 2;
+
+  cardElement.style.left = `${offsetX}px`;
+  cardElement.style.top = `${offsetY}px`;
+
+  // Vérifier si la carte a été déposée dans une catégorie
+  checkDrop(event);
+});
+
+document.addEventListener("touchstart", (event) => {
+  const touch = event.touches[0];
+  const rect = cardElement.getBoundingClientRect();
+  const offsetX = touch.clientX - rect.width / 2;
+  const offsetY = touch.clientY - rect.height / 2;
+
+  cardElement.style.left = `${offsetX}px`;
+  cardElement.style.top = `${offsetY}px`;
+
+  // Vérifier si la carte a été déposée dans une catégorie
+  checkDrop(event);
+}, { passive: true });
