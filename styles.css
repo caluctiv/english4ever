@@ -1,36 +1,119 @@
-/* Header styles */
-header {
-  width: 100%;
-  background-color: #979797; /* Couleur de la barre du haut */
+* {
+  margin: 0;
   padding: 0;
-  height: 80px; /* Hauteur de la barre définie à 80px */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+header {
+  background-color: #979797; /* Couleur modifiée */
+  padding: 10px;
+  position: relative;
+  height: 100px; /* Hauteur ajustée */
 }
 
 nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; /* Centrage horizontal du logo */
-  height: 100%; /* Hauteur égale à celle du header */
-  position: relative;
+  height: 100%;
 }
 
 .logo {
-  height: 100%; /* Le logo prend toute la hauteur du nav */
-  width: auto; /* Conserve les proportions du logo */
-  max-height: 100%; /* Limite la hauteur du logo à celle de la barre */
+  height: 100%;
+  width: auto;
 }
 
 .toolbar {
   list-style: none;
   display: flex;
   gap: 20px;
-  position: absolute;
-  right: 20px; /* Barre d'outils alignée à droite */
+}
+
+.toolbar li {
+  display: inline-block;
 }
 
 .toolbar a {
-  color: white;
   text-decoration: none;
+  color: #fff;
   font-size: 18px;
 }
 
+h1 {
+  margin: 20px 0;
+  font-size: 24px;
+}
+
+#card-container {
+  margin: 30px auto;
+  width: 50%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#card {
+  width: 100%;
+  height: 150px;
+  background-color: #fff;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vibrate {
+  animation: vibrate 0.2s infinite;
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(-50%, -50%) translateX(-2px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(2px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(-2px);
+  }
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.category {
+  width: 150px;
+  height: 100px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.category.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#score-container {
+  margin-top: 20px;
+  font-size: 20px;
+}
