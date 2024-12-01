@@ -84,6 +84,11 @@ function dropCard() {
         category.classList.add("active");
         displayMessage("Correct !");
         setTimeout(() => category.classList.remove("active"), 300);
+
+        // Vérifier si le score est de 10 et lancer les confettis
+        if (score === 10) {
+          lancerConfetti();
+        }
       } else {
         vibrateCard();
         displayMessage("Incorrect !");
@@ -119,6 +124,15 @@ function displayMessage(text) {
   setTimeout(() => {
     document.body.removeChild(message);
   }, 1000);
+}
+
+// Lancer les confettis
+function lancerConfetti() {
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
 }
 
 // Fonction pour afficher le bouton "Réessayer" à la fin de la partie
@@ -161,4 +175,3 @@ document.addEventListener("mouseup", () => {
 window.onload = function() {
   updateCard();  // Met à jour la première carte au chargement de la page
 };
-
