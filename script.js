@@ -9,7 +9,7 @@ let currentCardData = null;
 let isDragging = false;
 
 // Base de données des cartes (10 par catégorie)
-const cards = [
+let cards = [
   // True
   { text: "Sing-Sang-Sung-Chanter", category: "true" },
   { text: "Build-Built-Built-Construire", category: "true" },
@@ -36,12 +36,18 @@ const cards = [
 
 // Mise à jour de la carte
 function updateCard() {
-  if (currentCardIndex >= totalCards) return endGame();
+  if (currentCardIndex >= totalCards || cards.length === 0) return endGame();
 
   // Sélectionne une carte aléatoire
-  currentCardData = cards[Math.floor(Math.random() * cards.length)];
+  const randomIndex = Math.floor(Math.random() * cards.length);
+  currentCardData = cards[randomIndex];
+  
+  // Affiche la carte
   cardElement.textContent = currentCardData.text;
   cardElement.dataset.category = currentCardData.category;
+
+  // Supprime la carte du tableau pour qu'elle n'apparaisse plus
+  cards.splice(randomIndex, 1);
 
   // Réinitialisation de la carte et placement centré
   cardElement.style.top = "50%";
