@@ -49,43 +49,50 @@ h1 {
 
 /* Styles des pastilles de news */
 .news-container {
-  display: block;
-  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px 0;
   max-width: 1200px;
-  width: 100%; /* Prendre toute la largeur */
+  width: 100%;
   padding: 0 20px;
 }
 
 .news-item {
-  background-color: #4FA4D8;
-  padding: 20px;
-  border-radius: 15px;
-  color: white;
-  text-align: center;
-  margin-bottom: 20px; /* Espacement entre les pastilles */
-  width: 100%; /* Prendre toute la largeur disponible */
-  transition: transform 0.3s;
+  width: 280px;
+  height: 300px;
+  background-color: white; /* Fond blanc pour chaque pastille */
+  border: 1px solid #ddd;  /* Bordure grise légère */
+  border-radius: 10px;      /* Coins arrondis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+  overflow: hidden;         /* Cache l'excédent d'image si nécessaire */
+  text-decoration: none;    /* Retirer le souligné des liens */
+  color: #333;              /* Couleur du texte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px); /* Déplace légèrement la pastille vers le haut */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
 }
 
 .news-item img {
   width: 100%;
-  height: 300px; /* Ajuster la taille des images */
-  object-fit: cover;
-  border-radius: 10px;
+  height: 160px;
+  object-fit: cover; /* L'image remplit l'espace sans déformation */
 }
 
 .news-item h2 {
-  margin-top: 15px;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 10px 10px; /* Espacement autour du titre */
 }
 
 .news-item p {
   font-size: 14px;
-  margin-top: 10px;
+  margin: 0 10px 15px; /* Espacement autour du texte */
+  color: #555; /* Couleur de texte plus douce pour la description */
 }
 
 /* Style du footer */
