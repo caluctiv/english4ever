@@ -111,3 +111,37 @@ footer {
 footer p {
   margin: 0;
 }
+
+/* Styles pour la guirlande de Noël */
+.guirlande-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #008000; /* Vert pour Noël */
+  padding: 10px 0;
+}
+
+.guirlande {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.light {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  animation: clignoter 1s infinite alternate;
+}
+
+@keyframes clignoter {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
