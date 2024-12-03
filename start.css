@@ -48,14 +48,14 @@ h1 {
   font-size: 32px;
 }
 
-/* Guirlande lumineuse de Noël */
+/* Guirlande lumineuse - Version CSS */
 .guirlande-container {
   width: 100%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #008000;
+  background-color: #008000; /* Vert pour Noël */
   padding: 10px 0;
 }
 
@@ -82,47 +82,62 @@ h1 {
   }
 }
 
-/* Flocons de neige */
-.snowflakes {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Styles des pastilles de news */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px 0;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1000;
+  padding: 0 20px;
 }
 
-.snowflake {
-  position: absolute;
-  top: -10px;
-  color: white;
-  font-size: 24px;
-  user-select: none;
-  animation: fall 10s linear infinite;
+.news-item {
+  width: 280px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-  }
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.snowflake:nth-child(1) { left: 10%; animation-duration: 8s; }
-.snowflake:nth-child(2) { left: 20%; animation-duration: 10s; }
-.snowflake:nth-child(3) { left: 30%; animation-duration: 12s; }
-.snowflake:nth-child(4) { left: 50%; animation-duration: 9s; }
-.snowflake:nth-child(5) { left: 70%; animation-duration: 11s; }
-.snowflake:nth-child(6) { left: 80%; animation-duration: 7s; }
+.news-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
 
-/* Footer modifié */
+.news-item h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px 10px 10px;
+}
+
+.news-item p {
+  font-size: 14px;
+  margin: 0 10px 15px;
+  color: #555;
+}
+
+/* Footer */
 footer {
   width: 100%;
-  background-color: #F5F5DC; /* Fond beige */
+  background-color: #F5F5DC;
   color: #1565C0;
   text-align: center;
   padding: 20px;
-  position: relative; /* Le footer n'est plus en position fixe */
+  position: relative;
   bottom: 0;
 }
 
