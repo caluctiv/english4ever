@@ -47,6 +47,77 @@ h1 {
   font-size: 32px;
 }
 
+/* Guirlande lumineuse */
+.guirlande {
+  width: 100%;
+  height: 80px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.light {
+  width: 20px;
+  height: 40px;
+  border-radius: 50% 50% 0 0;
+  background-color: red;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    opacity: 0.5;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.light:nth-child(2) {
+  background-color: green;
+  animation-delay: 0.2s;
+}
+
+.light:nth-child(3) {
+  background-color: yellow;
+  animation-delay: 0.4s;
+}
+
+.light:nth-child(4) {
+  background-color: blue;
+  animation-delay: 0.6s;
+}
+
+.light:nth-child(5) {
+  background-color: white;
+  animation-delay: 0.8s;
+}
+
+.light:nth-child(6) {
+  background-color: purple;
+  animation-delay: 1s;
+}
+
+.light:nth-child(7) {
+  background-color: orange;
+  animation-delay: 1.2s;
+}
+
+.light:nth-child(8) {
+  background-color: pink;
+  animation-delay: 1.4s;
+}
+
 /* Styles des pastilles de news */
 .news-container {
   display: flex;
@@ -62,37 +133,37 @@ h1 {
 .news-item {
   width: 280px;
   height: 300px;
-  background-color: white; /* Fond blanc pour chaque pastille */
-  border: 1px solid #ddd;  /* Bordure grise légère */
-  border-radius: 10px;      /* Coins arrondis */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-  overflow: hidden;         /* Cache l'excédent d'image si nécessaire */
-  text-decoration: none;    /* Retirer le souligné des liens */
-  color: #333;              /* Couleur du texte */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-item:hover {
-  transform: translateY(-5px); /* Déplace légèrement la pastille vers le haut */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus marquée au survol */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .news-item img {
   width: 100%;
   height: 160px;
-  object-fit: cover; /* L'image remplit l'espace sans déformation */
+  object-fit: cover;
 }
 
 .news-item h2 {
   font-size: 18px;
   font-weight: bold;
-  margin: 15px 10px 10px; /* Espacement autour du titre */
+  margin: 15px 10px 10px;
 }
 
 .news-item p {
   font-size: 14px;
-  margin: 0 10px 15px; /* Espacement autour du texte */
-  color: #555; /* Couleur de texte plus douce pour la description */
+  margin: 0 10px 15px;
+  color: #555;
 }
 
 /* Style du footer */
@@ -110,38 +181,4 @@ footer {
 
 footer p {
   margin: 0;
-}
-
-/* Styles pour la guirlande de Noël */
-.guirlande-container {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #008000; /* Vert pour Noël */
-  padding: 10px 0;
-}
-
-.guirlande {
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
-}
-
-.light {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  animation: clignoter 1s infinite alternate;
-}
-
-@keyframes clignoter {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.3;
-  }
 }
