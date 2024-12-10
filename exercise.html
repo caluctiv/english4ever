@@ -39,12 +39,12 @@
 
   <!-- Liste des exercices -->
   <div class="exercise-list">
-    <ul>
-      <li><a href="exercice1.html">Exercice 1 : Grammaire</a></li>
-      <li><a href="exercice2.html">Exercice 2 : Vocabulaire</a></li>
-      <li><a href="exercice3.html">Exercice 3 : Compréhension</a></li>
-      <li><a href="exercice4.html">Exercice 4 : Conjugaison</a></li>
-      <li><a href="exercice5.html">Exercice 5 : Expression écrite</a></li>
+    <ul id="exercise-list">
+      <li data-exercise="Grammaire"><a href="exercice1.html">Exercice 1 : Grammaire</a></li>
+      <li data-exercise="Vocabulaire"><a href="exercice2.html">Exercice 2 : Vocabulaire</a></li>
+      <li data-exercise="Compréhension"><a href="exercice3.html">Exercice 3 : Compréhension</a></li>
+      <li data-exercise="Conjugaison"><a href="exercice4.html">Exercice 4 : Conjugaison</a></li>
+      <li data-exercise="Expression écrite"><a href="exercice5.html">Exercice 5 : Expression écrite</a></li>
     </ul>
   </div>
 
@@ -60,5 +60,28 @@
   <footer>
     <p>&copy; 2024 Lucca ELLERO. Tous droits réservés.</p>
   </footer>
+
+  <!-- JavaScript pour la barre de recherche -->
+  <script>
+    // Sélectionne la barre de recherche et la liste des exercices
+    const searchBar = document.getElementById('search-bar');
+    const exerciseList = document.getElementById('exercise-list');
+    const exercises = exerciseList.getElementsByTagName('li');
+
+    // Ajoute un écouteur d'événement pour détecter chaque entrée dans la barre de recherche
+    searchBar.addEventListener('keyup', function() {
+      const query = searchBar.value.toLowerCase(); // Récupère la valeur entrée et la met en minuscules
+
+      // Boucle à travers chaque exercice et vérifie si ça correspond à la recherche
+      for (let i = 0; i < exercises.length; i++) {
+        const exercise = exercises[i].getAttribute('data-exercise').toLowerCase(); // Récupère l'attribut data-exercise
+        if (exercise.includes(query)) {
+          exercises[i].style.display = ''; // Affiche l'exercice s'il correspond à la recherche
+        } else {
+          exercises[i].style.display = 'none'; // Cache l'exercice s'il ne correspond pas
+        }
+      }
+    });
+  </script>
 </body>
 </html>
