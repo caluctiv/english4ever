@@ -1,26 +1,21 @@
 <?php
-session_start();
+// login.php - Assure-toi que ton serveur supporte HTTPS et protège les données
+$data = json_decode(file_get_contents("php://input"), true);
+$email = $data['email'];
+$password = $data['password'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+// Exemple d'un utilisateur stocké dans une base de données avec un mot de passe haché
+$storedPasswordHash = '$2y$10$V8b4Cf2lhjq9ePtZ7qunTeFkzt5SThJEPdoVJf5H5LCT7zB0cpaK'; // password123
 
-    // Charger les utilisateurs
-    $users = json_decode(file_get_contents('users.json'), true)['users'];
-
-    $found = false; // Flag pour vérifier si l'utilisateur existe
-    foreach ($users as $user) {
-        if ($user['email'] === $email && $user['password'] === $password) {
-            $_SESSION['logged_in'] = true;
-            $_SESSION['email'] = $email;
-            echo "Connexion réussie !";  // Afficher un message de succès
-            exit;
-        }
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (password_verify($password, $storedPasswordHash)) {
+        // Mot de passe correct, renvoyer une réponse JSON avec succès
+        echo json_encode(['success' => true]);
+    } else {
+        // Mot de passe incorrect
+        echo json_encode(['success' => false]);
     }
-
-    // Si l'utilisateur n'est pas trouvé
-    $_SESSION['error'] = 'Identifiant ou mot de passe incorrect.';
-    echo $_SESSION['error'];  // Afficher un message d'erreur
-    exit;
+} else {
+    echo json_encode(['success' => false]);
 }
 ?>
